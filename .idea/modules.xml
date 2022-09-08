@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/composeplayground.iml" filepath="$PROJECT_DIR$/.idea/modules/composeplayground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/composeplayground.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/composeplayground.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/composeplayground.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/composeplayground.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/composeplayground.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/composeplayground.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/composeplayground.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/composeplayground.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>
