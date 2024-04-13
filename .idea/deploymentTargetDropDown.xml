@@ -2,19 +2,19 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="DrawCanvasPreview">
+      <entry key="CanvasPlaygroundPreview">
         <State />
       </entry>
-      <entry key="PathPlaygroundPreview">
+      <entry key="QuadBezierCurveSamplePreview">
         <State />
       </entry>
       <entry key="RotateSamplePreview">
         <State />
       </entry>
-      <entry key="ScratchCardPreview">
+      <entry key="WaterBottlePreview">
         <State />
       </entry>
-      <entry key="WaterBottlePreview">
+      <entry key="WaterBottleV2Preview">
         <State />
       </entry>
       <entry key="app">

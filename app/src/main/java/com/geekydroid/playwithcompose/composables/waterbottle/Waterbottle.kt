@@ -52,8 +52,20 @@ fun WaterBottle(
             inset(horizontal = 20f, vertical = 20f) {
                 path.moveTo(0F, size.height * 0.3f)
                 //Bottom portion
-                path.lineTo(0F, size.height)
-                path.lineTo(size.width, size.height)
+                path.lineTo(0F, size.height-50F)
+                path.quadraticBezierTo(
+                    x1 = 0F,
+                    y1 = size.height,
+                    x2 = 50F,
+                    y2 = size.height
+                )
+                path.lineTo(size.width-50F, size.height)
+                path.quadraticBezierTo(
+                    x1 = size.width,
+                    y1 = size.height,
+                    x2 = size.width,
+                    y2 = size.height - 50F
+                )
                 path.lineTo(size.width, size.height - size.height * 0.7f)
                 path.lineTo(0F, size.height * 0.3f)
 
@@ -86,7 +98,7 @@ fun WaterBottle(
                 }
             }
         }
-        Text(text = "${height.value - (height.value*0.1f) - fillSize}")
+        Text(text = "${(height.value*0.9f) - fillSize}")
     }
 
 }

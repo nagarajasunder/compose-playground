@@ -4,7 +4,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Slider
 import androidx.compose.material.Text
@@ -15,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -24,10 +22,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+
 @Composable
-fun CanvasPlayground(
-    width:Dp = 400.dp,
-    height:Dp = 400.dp,
+fun QuadBezierCurveSample(
+    width: Dp = 400.dp,
+    height: Dp = 400.dp,
     x1:Float = 0F,
     y1:Float = 0F
 ) {
@@ -56,29 +55,10 @@ fun CanvasPlayground(
 
 }
 
-@Composable
-fun KotlinShape() {
-
-    val path = Path()
-    val gradient = Brush.linearGradient(
-        colors = listOf(Color(0XFF812F79), Color(0XFF2C1961))
-    )
-    Canvas(modifier = Modifier.size(300.dp)) {
-        inset(horizontal = 20f, vertical = 20f) {
-            path.lineTo(0F, size.height)
-            path.lineTo(size.width, size.height)
-            path.lineTo(size.width / 2f, size.height / 2)
-            path.lineTo(size.width, 0F)
-            path.lineTo(0F, 0F)
-            drawPath(path, brush = gradient)
-        }
-    }
-
-}
 
 @Preview(showBackground = true)
 @Composable
-fun CanvasPlaygroundPreview() {
+fun QuadBezierCurveSamplePreview() {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         val height =400.dp
         var x1 by remember {
@@ -87,7 +67,7 @@ fun CanvasPlaygroundPreview() {
         var y1 by remember {
             mutableStateOf(0f)
         }
-        CanvasPlayground(
+        QuadBezierCurveSample(
             height = height,
             x1 = x1*height.value,
             y1 = y1*height.value

@@ -13,3 +13,7 @@ Wapp/src/main/java/com/geekydroid/playwithcompose/composables/canvas/CanvasPlayG
 Sapp/src/main/java/com/geekydroid/playwithcompose/composables/canvas/RotateSample.kt,b/d/bdb76f141de1224e5d8d19ca219b0d5d0e3ef8ad
 ‡
 Wapp/src/main/java/com/geekydroid/playwithcompose/composables/waterbottle/Waterbottle.kt,5/6/564e004cb1cb1065ff0a24a6ec846fc987b0f949
+‰
+Yapp/src/main/java/com/geekydroid/playwithcompose/composables/waterbottle/WaterBottleV2.kt,0/2/0289ce67b4c5d337a29524b3eb2fdaa80768444f
+Œ
+\app/src/main/java/com/geekydroid/playwithcompose/composables/canvas/QuadBezierCurveSample.kt,f/3/f32ce49b366fe699a20f0d8fd4becff53b302099
