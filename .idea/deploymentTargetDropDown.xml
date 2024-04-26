@@ -2,19 +2,32 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CanvasPlaygroundPreview">
+      <entry key="AlarmSwipperPreview">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="1fb938ee" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-23T15:30:24.783754135Z" />
+        </State>
+      </entry>
+      <entry key="AlarmSwipperV2Preview">
         <State />
       </entry>
-      <entry key="QuadBezierCurveSamplePreview">
+      <entry key="DrawCanvasPreview">
         <State />
       </entry>
-      <entry key="RotateSamplePreview">
+      <entry key="RoughNotePreview">
         <State />
       </entry>
-      <entry key="WaterBottlePreview">
-        <State />
-      </entry>
-      <entry key="WaterBottleV2Preview">
+      <entry key="ScratchCanvasPreview">
         <State />
       </entry>
       <entry key="app">

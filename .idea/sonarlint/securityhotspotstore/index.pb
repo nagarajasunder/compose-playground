@@ -17,3 +17,17 @@ Wapp/src/main/java/com/geekydroid/playwithcompose/composables/waterbottle/Waterb
 Yapp/src/main/java/com/geekydroid/playwithcompose/composables/waterbottle/WaterBottleV2.kt,0/2/0289ce67b4c5d337a29524b3eb2fdaa80768444f
 Œ
 \app/src/main/java/com/geekydroid/playwithcompose/composables/canvas/QuadBezierCurveSample.kt,f/3/f32ce49b366fe699a20f0d8fd4becff53b302099
+‰
+Yapp/src/main/java/com/geekydroid/playwithcompose/composables/scratchcard/ScratchCardV2.kt,d/1/d107100570194813373dd3516b3b45e076e1f94f
+ƒ
+Sapp/src/main/java/com/geekydroid/playwithcompose/composables/canvas/CanvasFlower.kt,7/b/7b824196efeefd5e7155646298b4484643b1344b
+‡
+Wapp/src/main/java/com/geekydroid/playwithcompose/composables/stepperview/StepperView.kt,4/c/4ca33cf5d1feb4d2e5582c6d826a32916a8d1719
+‰
+Yapp/src/main/java/com/geekydroid/playwithcompose/composables/alarmswipper/AlarmSwipper.kt,a/f/af07f673aa3a904b43671c1f8433175fd1448f9c
+‹
+[app/src/main/java/com/geekydroid/playwithcompose/composables/alarmswipper/AlarmSwipperV2.kt,6/6/66fc9d830b07afda962411346f2bd1ec43440f07
+ƒ
+Sapp/src/main/java/com/geekydroid/playwithcompose/composables/roughnote/RoughNote.kt,4/4/441bb358809903ad8ad6180711d1fec4b62f8416
+‹
+[app/src/main/java/com/geekydroid/playwithcompose/composables/alarmswipper/AlarmSwipperV3.kt,9/8/989a282c4831233972081746b82f13d94fdfe2e2

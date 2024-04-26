@@ -3,12 +3,16 @@ package com.geekydroid.playwithcompose.composables.scratchcard
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateSizeAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,13 +31,14 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.geekydroid.playwithcompose.R
 
 @Composable
-fun ScratchCanvas(
+fun ScratchCanvasV2(
     onScratchComplete: () -> Unit
 ) {
     val path by remember {
@@ -49,46 +54,55 @@ fun ScratchCanvas(
     val sizeAnim by animateSizeAsState(targetValue = fillSize, tween(100))
     val baseImage = ImageBitmap.imageResource(id = R.drawable.base_image)
     val overlayImage = ImageBitmap.imageResource(id = R.drawable.overlay_image)
-    Canvas(
-        modifier = Modifier
-            .size(300.dp)
-            .clipToBounds()
-            .clip(RoundedCornerShape(8.dp))
-            .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        currentOffset = it
-                    },
-                    onDragEnd = {
-                        fillSize = Size(size.width.toFloat(), size.height.toFloat())
-                        onScratchComplete()
-                    }
-                ) { change, _ ->
-                    change.consume()
-                    currentOffset = change.position
-                }
-            }
-    ) {
-        drawImage(
-            image = overlayImage,
-            dstSize = IntSize(size.width.toInt(), size.height.toInt())
-        )
-        currentOffset?.let {
-            path.addOval(
-                Rect(it, 50F)
-            )
+    AnimatedVisibility(visible = fillSize != Size.Zero,enter = fadeIn(), exit = fadeOut()) {
+        Card(
+            modifier = Modifier.size(300.dp)
+        ) {
+            Image(painter = painterResource(id = R.drawable.base_image), contentDescription = null)
         }
-        path.addRect(
-            Rect(Offset.Zero,sizeAnim)
-        )
-        clipPath(
-            path = path,
-            clipOp = ClipOp.Intersect
+    }
+    if (fillSize == Size.Zero) {
+        Canvas(
+            modifier = Modifier
+                .size(300.dp)
+                .clipToBounds()
+                .clip(RoundedCornerShape(8.dp))
+                .pointerInput(Unit) {
+                    detectDragGestures(
+                        onDragStart = {
+                            currentOffset = it
+                        },
+                        onDragEnd = {
+                            fillSize = Size(size.width.toFloat(), size.height.toFloat())
+                            onScratchComplete()
+                        }
+                    ) { change, _ ->
+                        change.consume()
+                        currentOffset = change.position
+                    }
+                }
         ) {
             drawImage(
-                image = baseImage,
+                image = overlayImage,
                 dstSize = IntSize(size.width.toInt(), size.height.toInt())
             )
+            currentOffset?.let {
+                path.addOval(
+                    Rect(it, 50F)
+                )
+            }
+            path.addRect(
+                Rect(Offset.Zero,sizeAnim)
+            )
+            clipPath(
+                path = path,
+                clipOp = ClipOp.Intersect
+            ) {
+                drawImage(
+                    image = baseImage,
+                    dstSize = IntSize(size.width.toInt(), size.height.toInt())
+                )
+            }
         }
     }
 }
@@ -96,12 +110,12 @@ fun ScratchCanvas(
 
 @Preview(showBackground = true)
 @Composable
-fun DrawCanvasPreview() {
+fun ScratchCanvasPreview() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        ScratchCanvas {
+        ScratchCanvasV2 {
 
         }
     }

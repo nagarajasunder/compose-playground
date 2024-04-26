@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.geekydroid.playwithcompose.composables.scratchcard.ScratchCanvas
-import com.geekydroid.playwithcompose.composables.scratchcard.ScratchCard
 import com.geekydroid.playwithcompose.ui.theme.PlaywithcomposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    ScratchCard()
+                    ScratchCanvas{}
                 }
             }
         }
