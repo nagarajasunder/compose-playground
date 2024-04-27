@@ -3,6 +3,7 @@ package com.geekydroid.playwithcompose.composables.alarmswipper
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -24,6 +25,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
+import androidx.compose.material.SwipeableDefaults.StiffResistanceFactor
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
@@ -96,9 +98,9 @@ fun AlarmSwipperV3(
             AnchoredDraggableState(
                 initialValue = 0F,
                 anchors = anchorPoints,
-                velocityThreshold = { with(density) { 50.dp.toPx() } },
-                positionalThreshold = { distance: Float -> distance * 0.25f },
-                animationSpec = tween(500)
+                velocityThreshold = { with(density) { maxWidth.toPx() } },
+                positionalThreshold = { distance: Float -> distance },
+                animationSpec = spring(1.5f)
             )
         }
 
@@ -135,7 +137,7 @@ fun AlarmSwipperV3(
                 .clip(CircleShape)
                 .background(Color.DarkGray.copy(alpha = 0.8f))
                 .drawWithContent {
-                    if ( anchoredDraggableState.currentValue == 0F && anchoredDraggableState.progress == 1F) {
+                    if (anchoredDraggableState.offset == 0F) {
                         rotate(180f) {
                             drawRoundRect(
                                 topLeft = Offset(
@@ -233,11 +235,11 @@ fun AlarmSwipperV3Preview() {
         AlarmSwipperV3(
             swipeEnabled = swipeEnabled,
             onSwipeLeft = {
-                swipeEnabled = false
+                //swipeEnabled = false
                 Toast.makeText(context, "Swipe left", Toast.LENGTH_SHORT).show()
             },
             onSwipeRight = {
-                swipeEnabled = false
+                //swipeEnabled = false
                 Toast.makeText(context, "Swipe right", Toast.LENGTH_SHORT).show()
             }
         )

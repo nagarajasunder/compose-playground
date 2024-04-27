@@ -31,3 +31,7 @@ Yapp/src/main/java/com/geekydroid/playwithcompose/composables/alarmswipper/Alarm
 Sapp/src/main/java/com/geekydroid/playwithcompose/composables/roughnote/RoughNote.kt,4/4/441bb358809903ad8ad6180711d1fec4b62f8416
 ‹
 [app/src/main/java/com/geekydroid/playwithcompose/composables/alarmswipper/AlarmSwipperV3.kt,9/8/989a282c4831233972081746b82f13d94fdfe2e2
+‹
+[app/src/main/java/com/geekydroid/playwithcompose/composables/swipetodelete/SwipeToDelete.kt,f/c/fc70242ddb80d2e6808469998b103cd90fcf8d26
+{
+Kapp/src/main/java/com/geekydroid/playwithcompose/composables/clock/Clock.kt,0/b/0b704cb2ef87901d9f40bacd9225f25c26730e2c
