@@ -2,26 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="AlarmSwipperPreview">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="1fb938ee" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-23T15:30:24.783754135Z" />
-        </State>
-      </entry>
       <entry key="AlarmSwipperV2Preview">
         <State />
       </entry>
       <entry key="AlarmSwipperV3Preview">
+        <State />
+      </entry>
+      <entry key="BarChartPreview">
         <State />
       </entry>
       <entry key="ClockPreview">

@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -59,6 +60,7 @@ fun Clock(
         )
         rotate(hoursAngle) {
             drawLine(
+                cap = StrokeCap.Round,
                 start = Offset(size.width / 2f, size.height / 2f),
                 end = Offset(size.width / 2f, size.height * 0.25f),
                 color = Color.Black,
@@ -67,6 +69,7 @@ fun Clock(
         }
         rotate(minutesAngle) {
             drawLine(
+                cap = StrokeCap.Round,
                 start = Offset(size.width / 2f, size.height / 2f),
                 end = Offset(size.width / 2f, size.height * 0.20f),
                 color = Color.Black,
@@ -104,6 +107,7 @@ fun Clock(
                 pivot = start
             ) {
                 drawLine(
+                    cap = StrokeCap.Round,
                     start = start,
                     end = end,
                     color = Color.Black,

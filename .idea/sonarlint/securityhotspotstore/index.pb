@@ -35,3 +35,5 @@ Sapp/src/main/java/com/geekydroid/playwithcompose/composables/roughnote/RoughNot
 [app/src/main/java/com/geekydroid/playwithcompose/composables/swipetodelete/SwipeToDelete.kt,f/c/fc70242ddb80d2e6808469998b103cd90fcf8d26
 {
 Kapp/src/main/java/com/geekydroid/playwithcompose/composables/clock/Clock.kt,0/b/0b704cb2ef87901d9f40bacd9225f25c26730e2c
+Å
+Qapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChart.kt,8/b/8b9767b10535c3204f84bc28d0b0e431ceba0a3f
