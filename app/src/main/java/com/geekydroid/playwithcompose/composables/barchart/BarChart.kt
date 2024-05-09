@@ -30,8 +30,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
+import com.geekydroid.playwithcompose.composables.barchart.BarChartUtils.findBarRange
+import com.geekydroid.playwithcompose.composables.barchart.BarChartUtils.getSizePercentage
 import kotlinx.coroutines.launch
-import kotlin.math.ceil
+
 
 data class BarItem(
     val name: String,
@@ -157,32 +159,7 @@ fun BarChart(
     }
 }
 
-fun findBarRange(barData: List<BarItem>): BarRange {
-    val min = barData.minBy { it.value }.value
-    val max = barData.maxBy { it.value }.value
-    var rangeInterval = findRangeInterval(max/5)
-    var range = 0f
-    val intervals = mutableListOf<Float>()
-    repeat(6) {
-        intervals.add(range)
-        range+=rangeInterval.toFloat()
-    }
-    return BarRange(
-        minValue = min,
-        maxValue = intervals[intervals.size-1]+rangeInterval.toFloat(),
-        rangeInterval = rangeInterval.toFloat(),
-        intervals = intervals
-    )
-}
 
-fun findRangeInterval(value: Float): Double {
-    val cleanFactor = 100
-    return ceil(value / cleanFactor.toDouble()) * cleanFactor
-}
-
-fun getSizePercentage(barRange: BarRange, barItem: BarItem): Float {
-    return (barItem.value/barRange.maxValue)
-}
 
 
 @Preview(showSystemUi = true)

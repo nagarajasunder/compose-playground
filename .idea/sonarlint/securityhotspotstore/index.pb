@@ -37,3 +37,7 @@ Sapp/src/main/java/com/geekydroid/playwithcompose/composables/roughnote/RoughNot
 Kapp/src/main/java/com/geekydroid/playwithcompose/composables/clock/Clock.kt,0/b/0b704cb2ef87901d9f40bacd9225f25c26730e2c
 Å
 Qapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChart.kt,8/b/8b9767b10535c3204f84bc28d0b0e431ceba0a3f
+Ü
+Vapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChartUtils.kt,f/4/f46edb43912a010f93acc4965067697317f0c104
+Å
+Qapp/src/main/java/com/geekydroid/playwithcompose/composables/piechart/Piechart.kt,5/f/5f63f773329dade28ad918d1d8fcbc54092ee567
