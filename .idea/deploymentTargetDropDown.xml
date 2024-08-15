@@ -9,12 +9,25 @@
         <State />
       </entry>
       <entry key="BarChartPreview">
-        <State />
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="adb-1fb938ee-Lj5ooU._adb-tls-connect._tcp" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-05-08T15:31:51.954300268Z" />
+        </State>
       </entry>
       <entry key="ClockPreview">
         <State />
       </entry>
-      <entry key="RoughNotePreview">
+      <entry key="PiechartPreview">
         <State />
       </entry>
       <entry key="app">

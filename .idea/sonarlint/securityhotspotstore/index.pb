@@ -41,3 +41,5 @@ Qapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChart.
 Vapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChartUtils.kt,f/4/f46edb43912a010f93acc4965067697317f0c104
 Å
 Qapp/src/main/java/com/geekydroid/playwithcompose/composables/piechart/Piechart.kt,5/f/5f63f773329dade28ad918d1d8fcbc54092ee567
+É
+Sapp/src/main/java/com/geekydroid/playwithcompose/composables/barchart/BarChartV2.kt,b/0/b00625883545bc9fb6c120a3b10e0aceb95d22df

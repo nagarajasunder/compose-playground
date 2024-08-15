@@ -4,15 +4,13 @@ import kotlin.math.ceil
 
 object BarChartUtils {
 
-    private const val MAX_HORIZONTAL_LINES = 6
-
-    fun findBarRange(barData: List<BarItem>): BarRange {
+    fun findBarRange(barData: List<BarItem>,maxHorizontalLines:Int = 6): BarRange {
         val min = barData.minBy { it.value }.value
         val max = barData.maxBy { it.value }.value
         val rangeInterval = findRangeInterval(max/5)
         var range = 0f
         val intervals = mutableListOf<Float>()
-        repeat(MAX_HORIZONTAL_LINES) {
+        repeat(maxHorizontalLines) {
             intervals.add(range)
             range+=rangeInterval.toFloat()
         }
