@@ -1,6 +1,8 @@
 package com.geekydroid.playwithcompose.composables.waterbottle
 
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.ClipOp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
@@ -33,53 +36,54 @@ fun WaterBottleV2(
     bottleHeight: Dp = 400.dp
 ) {
 
-    val path = Path()
-    val fillSizeAnim by animateFloatAsState(targetValue = fillSize)
+    val waterBottlePath = Path()
+    val fillSizeAnim by animateFloatAsState(targetValue = fillSize, animationSpec = tween(250, easing = LinearEasing))
     Canvas(
         modifier = Modifier
             .width(200.dp)
             .height(bottleHeight)
     ) {
         inset(horizontal = 20f, vertical = 20f) {
-            path.moveTo(0F, size.height * 0.4f)
-            path.lineTo(0F, size.height - 20F)
-            path.quadraticBezierTo(
+            waterBottlePath.moveTo(0F, size.height * 0.4f)
+            waterBottlePath.lineTo(0F, size.height - 20F)
+            waterBottlePath.quadraticBezierTo(
                 x1 = 0F,
                 y1 = size.height,
                 x2 = 20F,
                 y2 = size.height
             )
-            path.lineTo(size.width - 20f, size.height)
-            path.quadraticBezierTo(
+            waterBottlePath.lineTo(size.width - 20f, size.height)
+            waterBottlePath.quadraticBezierTo(
                 x1 = size.width,
                 y1 = size.height,
                 x2 = size.width,
                 y2 = size.height - 20f
             )
-            path.lineTo(size.width, (size.height * 0.4f))
-            path.quadraticBezierTo(
+            waterBottlePath.lineTo(size.width, (size.height * 0.4f))
+            waterBottlePath.quadraticBezierTo(
                 x1 = size.width,
                 y1 = size.height * 0.3f,
                 x2 = size.width - 100f,
                 y2 = size.height * 0.25f
             )
-            path.moveTo(0F, size.height * 0.4f)
-            path.quadraticBezierTo(
+            waterBottlePath.moveTo(0F, size.height * 0.4f)
+            waterBottlePath.quadraticBezierTo(
                 x1 = 0F,
                 y1 = size.height * 0.3f,
                 x2 = 100f,
                 y2 = size.height * 0.25f
             )
-            path.lineTo(size.width - 100f, size.height * 0.25f)
+            waterBottlePath.lineTo(size.width - 100f, size.height * 0.25f)
             drawRoundRect(
                 color = Color(0XFFa0d9ef),
                 size = Size(size.width / 2F, size.height * 0.1f),
                 topLeft = Offset(size.width * 0.25f, size.height * 0.15f),
                 cornerRadius = CornerRadius(12f, 12f)
             )
-            drawPath(path, color = Color.LightGray)
+            drawPath(waterBottlePath, color = Color.LightGray)
             clipPath(
-                path = path
+                path = waterBottlePath,
+                clipOp = ClipOp.Intersect
             ) {
                 rotate(180f) {
                     drawRect(

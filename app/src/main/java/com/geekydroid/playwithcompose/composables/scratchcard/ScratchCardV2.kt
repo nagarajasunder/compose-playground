@@ -1,4 +1,4 @@
-package com.geekydroid.playwithcompose.composables.scratchcard
+    package com.geekydroid.playwithcompose.composables.scratchcard
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateSizeAsState
@@ -7,12 +7,15 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,6 +29,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ClipOp
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
@@ -36,8 +40,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.geekydroid.playwithcompose.R
+import com.geekydroid.playwithcompose.composables.shapes.zigzagshape.ZigZagCurveShape
+import com.geekydroid.playwithcompose.composables.shapes.zigzagshape.ZigZagShape
 
-@Composable
+    @Composable
 fun ScratchCanvasV2(
     onScratchComplete: () -> Unit
 ) {
@@ -56,7 +62,9 @@ fun ScratchCanvasV2(
     val overlayImage = ImageBitmap.imageResource(id = R.drawable.overlay_image)
     AnimatedVisibility(visible = fillSize != Size.Zero,enter = fadeIn(), exit = fadeOut()) {
         Card(
-            modifier = Modifier.size(300.dp)
+            modifier = Modifier
+                .size(300.dp)
+                .clip(ZigZagShape())
         ) {
             Image(painter = painterResource(id = R.drawable.base_image), contentDescription = null)
         }
@@ -66,14 +74,14 @@ fun ScratchCanvasV2(
             modifier = Modifier
                 .size(300.dp)
                 .clipToBounds()
-                .clip(RoundedCornerShape(8.dp))
+                .clip(ZigZagCurveShape(20))
                 .pointerInput(Unit) {
                     detectDragGestures(
                         onDragStart = {
                             currentOffset = it
                         },
                         onDragEnd = {
-                            fillSize = Size(size.width.toFloat(), size.height.toFloat())
+                            //fillSize = Size(size.width.toFloat(), size.height.toFloat())
                             onScratchComplete()
                         }
                     ) { change, _ ->
@@ -111,12 +119,23 @@ fun ScratchCanvasV2(
 @Preview(showBackground = true)
 @Composable
 fun ScratchCanvasPreview() {
+    var refresh by remember { mutableStateOf(false) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Gray)
     ) {
-        ScratchCanvasV2 {
+        AnimatedVisibility(visible = refresh) {
+            ScratchCanvasV2 {
 
+            }
+        }
+        Button(onClick = {
+            refresh = !refresh
+        }) {
+            Text("Refresh")
         }
     }
 }

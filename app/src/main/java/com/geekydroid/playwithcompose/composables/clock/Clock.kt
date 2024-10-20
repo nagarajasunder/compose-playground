@@ -1,6 +1,7 @@
 package com.geekydroid.playwithcompose.composables.clock
 
 import android.icu.util.Calendar
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
@@ -38,7 +39,7 @@ fun Clock(
     val seconds = calendar[Calendar.SECOND]
     val minutes = calendar[Calendar.MINUTE]
     val hours = calendar[Calendar.HOUR]
-    val secondsAngle = seconds * 6f
+    val secondsAngle by animateFloatAsState(targetValue = seconds * 6f)
     val minutesAngle = (minutes + seconds / 60f) * 6f
     val hoursAngle = (hours + minutes / 60f) * 30f
     val circleGradient = Brush.radialGradient(
@@ -127,7 +128,7 @@ fun ClockPreview() {
     }
     LaunchedEffect(key1 = Unit) {
         while (true) {
-            delay(200L)
+            delay(1000L)
             currentTime = System.currentTimeMillis()
         }
     }
