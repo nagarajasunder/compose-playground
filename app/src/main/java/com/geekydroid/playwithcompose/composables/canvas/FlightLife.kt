@@ -22,9 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
@@ -46,7 +49,12 @@ fun GameHealthIndicator(modifier: Modifier = Modifier) {
         Button(onClick = {
             healthBar = (healthBar-0.1f).coerceAtLeast(0f)
         }) {
-            Text("Fill")
+            Text("Decrease")
+        }
+        Button(onClick = {
+            healthBar = (healthBar+0.1f).coerceAtMost(1f)
+        }) {
+            Text("Increase")
         }
         Button(onClick = {
             healthBar = 1f
@@ -64,14 +72,15 @@ private fun HealthBar(
     healthPercentage: Float) {
     val planeSize = 240
     val image = ImageBitmap.imageResource(R.drawable.flight)
-    val color = if (healthPercentage > 0.4f) {
-        Color.Green
-    } else {
-        Color.Red
-    }
-    val colorAnim by animateColorAsState(
-        targetValue = color,
-        animationSpec = tween(1000, easing = LinearEasing)
+    val colorGradient = Brush.verticalGradient(
+        colors = buildList {
+            if(healthPercentage > 0.6f) add(Color.Green)
+            if(healthPercentage > 0.6f) add(Color.Green)
+            if (healthPercentage < 0.6f && healthPercentage > 0.4f) add(Color.Yellow.copy(0.5f))
+            if (healthPercentage < 0.6f  && healthPercentage > 0.4f) add(Color.Yellow)
+            if (healthPercentage < 0.4f) add(Color.Red)
+            if (healthPercentage < 0.4f) add(Color.Red.copy(alpha = 0.7f))
+        },
     )
     Box(modifier = modifier
         .size(planeSize.dp)
@@ -101,7 +110,7 @@ private fun HealthBar(
                 modifier = Modifier
                     .height((planeSize * healthPercentage).dp)
                     .fillMaxWidth()
-                    .background(colorAnim)
+                    .background(colorGradient)
                     .align(Alignment.BottomCenter)
             )
         }
