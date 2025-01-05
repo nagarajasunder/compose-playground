@@ -58,13 +58,13 @@ private fun BrushTextAnim(modifier: Modifier = Modifier) {
     )
     val brush = Brush.linearGradient(
         colors = listOf(
-            Color.Red,
-            Color.Blue,
-            Color.Red
+            Color.LightGray,
+            Color.White,
+            Color.LightGray,
 
         ),
-        start = Offset(floatAnim,0f),
-        end = Offset(brushSize+floatAnim,0f),
+        start = Offset(floatAnim+brushSize,floatAnim+brushSize),
+        end = Offset(floatAnim,floatAnim),
         tileMode = TileMode.Mirror
     )
     Box(modifier = Modifier
