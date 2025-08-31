@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
+import androidx.compose.material.Slider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -21,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,6 +41,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import java.text.DecimalFormat
+import kotlin.math.max
 import kotlin.math.roundToInt
 
 @Composable
@@ -51,7 +54,9 @@ fun CustomSlider(modifier: Modifier = Modifier,progress:Float,onValueChange: (Fl
     val progressBorderColor = Color(0xff222222)
     val progressContainerColor = Color(0xffb4e0fc)
     val thumbColor = Color(0xff047acd)
+    val valueChangeState = rememberUpdatedState(onValueChange)
     BoxWithConstraints {
+
         val strokeWidth = 6f
         val maxWidthPx = with(density) {maxWidth.toPx()}
         LaunchedEffect(Unit) {
@@ -211,10 +216,13 @@ private fun DrawScope.drawSliderProgressContainer(offsetX: Float, containerColor
 @Composable
 private fun CustomSliderPreview() {
     var progress by remember { mutableFloatStateOf(0f) }
-    Column(modifier = Modifier.padding(8.dp)) {
+    Column(modifier = Modifier.padding(24.dp)) {
         CustomSlider(progress = progress) { newProgress ->
             progress = newProgress
         }
+        Slider(value = progress, onValueChange = {
+            progress = it
+        })
         Button(onClick = {
             progress = 0f
         }) {
