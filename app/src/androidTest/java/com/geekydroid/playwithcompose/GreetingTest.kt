@@ -17,7 +17,7 @@ class GreetingTest {
     @Test
     fun greetingTest() {
         composeTestRule.setContent {
-            Greeting(name = "Android")
+            Content(name = "Android")
         }
         composeTestRule.onNodeWithText("Hello Android!").assertIsDisplayed()
     }
